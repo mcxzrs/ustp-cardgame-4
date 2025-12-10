@@ -19,6 +19,8 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+      - name: GH Release
+        uses: softprops/action-gh-release@v2.5.0
 
         #hehehe
         #hehehehehehe
