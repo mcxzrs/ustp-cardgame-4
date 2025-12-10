@@ -1,13 +1,13 @@
 name: Release
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: push
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: GH Release
-        uses: softprops/action-gh-release@v2.5.0
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
