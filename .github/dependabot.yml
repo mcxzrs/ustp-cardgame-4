@@ -9,4 +9,6 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    
+ignore:
+  - dependency-name: "globals"
+    versions: [ ">=1.0.0" ]
