@@ -1,27 +1,31 @@
-name: Main
+name: Release
 
 on:
   push:
     tags:
-      - "v.*.*.*"
+      - "v*.*.*"
 
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Download the build artifact produced by the CI workflow
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
           name: game-build
           path: build
 
+      # Zip the build
       - name: Zip build
-        run: zip -r GameBuild.zip build/
+        run: zip -r GameBuild-${{ github.ref_name }}.zip build/
 
-      - name: Publish GitHub Release
+      # Publish the release
+      - name: Publish Release
         uses: softprops/action-gh-release@v2
         with:
-          files: GameBuild.zip
+          files: GameBuild-${{ github.ref_name }}.zip
