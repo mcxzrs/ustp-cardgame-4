@@ -19,5 +19,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-        #hehehe
-        #hehehehehehe
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-build
+          path: dist/
+
