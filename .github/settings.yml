@@ -84,8 +84,10 @@ milestones:
 collaborators:
   - username: ViktorHofer
     permission: push
-  # - username: hubot
-  #   permission: pull
+  - username: mcxzrs
+    permission: admin
+  - username: Paul-CodeGH
+    permission: admin
 
   # Note: `permission` is only valid on organization-owned repositories.
   # The permission to grant the collaborator. Can be one of:
